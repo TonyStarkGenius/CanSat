@@ -11,7 +11,7 @@ volatile char RXi;
 volatile char RXc;
 volatile char RX_BUF[RX_BUF_SIZE] = {'\0'};
 volatile char buffer[100] = {'\0'};
-char lattitude[10];
+char lattitude[10]={"0000.0000"};
 char longtitude[10];
 
 void GPS_GetCoord(const char* str, char* lat, char* lon) {
