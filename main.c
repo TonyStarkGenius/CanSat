@@ -68,7 +68,7 @@ void googleconvert(void)
 void Delay(void) 
 {
  volatile uint32_t i;
- for (i=0; i != 0x3000000; i++);
+ for (i=0; i != 0x3100000; i++);
 }
 
 void Delay30s(void) 
@@ -300,8 +300,13 @@ void USART3_IRQHandler(void)
 int main(void)
 {
   usart_init();
-  send_str3("AT");
-	while(1)
+  send_str2("AT");
+	while(!(strstr(RX_BUF3,"OK")))
+{
+send_str3("AT");
+Delay();
+}
+while(1)
 	 {
 		RX_FLAG_END_LINE=0;
 		RX_FLAG_END_LINE3=0;		 
